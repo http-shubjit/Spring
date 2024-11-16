@@ -1,0 +1,42 @@
+
+Why We Use Spring? 
+
+
+In the early 2000s, web development primarily relied on technologies like HTML, CSS, and JavaScript.
+Similarly, before the advent of modern programming languages like , Python, and C++, many developers 
+used C as the foundational language for software development. The evolution of these technologies has 
+led to the emergence of frameworks such as ReactJS and Next.js for web development, which simplify 
+complex tasks and enhance productivity. Before the introduction of Spring, Java developers primarily
+relied on Java EE (Enterprise Edition) for building enterprise applications. However, Java EE was often 
+cumbersome and complex, making it challenging for developers to create robust applications efficiently. 
+Building server-side logic required significant time and effort,leading to frustration among developers.
+Recognizing these challenges, Rod Johnson developed the Spring Framework to provide a more straightforward 
+and efficient way to build Java applications. Spring simplifies application development by offering lightweight 
+framework that promotes good programming practices and allows developers to focus on writing business logic rather 
+than dealing with intricate configurations.With Spring, developers can quickly set up a server and implement complex 
+business logic with minimal effort. 
+
+
+
+Core Features of Spring:
+
+
+One of the primary features that Spring offers is Inversion of Control (IoC). This principle allows for the creation of 
+objects within a class while enabling access to those instances through Dependency Injection (DI). While it may sound simple,
+accessing instances of one class from another can be quite challenging in traditional programming. This is a critical issue that
+Spring effectively resolves.
+
+
+
+Inversion of Control (IoC): This design principle shifts the responsibility of managing object creation from the application code 
+to the Spring container. This means that instead of classes creating their dependencies, they receive them from the Spring IoC container.
+
+
+
+Dependency Injection (DI): DI is a specific implementation of IoC where an object’s dependencies are provided externally rather 
+than being created internally.This promotes loose coupling between classes and enhances testability.
+
+
+
+By leveraging IoC and DI, Spring allows developers to manage complex dependencies easily, leading to cleaner, more maintainable code. 
+As a result, developers can focus on building robust applications without getting bogged down by intricate object management issues.
