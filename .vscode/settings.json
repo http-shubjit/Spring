@@ -1,0 +1,5 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "files.autoSave": "onFocusChange",
+    "editor.wordWrap": "bounded"
+}
