@@ -4,10 +4,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+
+
     <!-- Bean definition for Car -->
-    <bean id="car" class="com.example.Car"/>
+    <bean id="car" class="com.example.Car">
+    <!--imp: it will return like object of Car Class like(new Car())-->
+
+    </bean>
 
     <!-- Bean definition for Bus -->
-    <bean id="bus" class="com.example.Bus"/>
+    <bean id="bus" class="com.example.Bus">
+      <!--imp: it will return like object of Bus Class like(new Bus())-->
+    </bean>
+
+   
+
+    
 
 </beans>

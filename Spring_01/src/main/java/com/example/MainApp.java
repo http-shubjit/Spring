@@ -11,9 +11,11 @@ public class MainApp {
         // Retrieve and use the Car bean
         Vehicle car = (Vehicle) context.getBean("car");
         car.getMileage();
+       
 
         // Retrieve and use the Bus bean
         Vehicle bus = (Vehicle) context.getBean("bus");
         bus.getMileage();
+       
     }
 }
