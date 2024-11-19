@@ -1,0 +1,24 @@
+<!-- src/main/resources/applicationContext.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Bean for Fare-->
+ <bean id="fare" class="com.example.Fare"/> <!--imp: it will return like  Fare fare=new Fare() -->
+
+    <!-- Bean definition for Car -->
+    <bean id="car" class="com.example.Car">
+<constructor-arg ref='fare'/>
+    </bean>
+
+    <!-- Bean definition for Bus -->
+    <bean id="bus" class="com.example.Bus">
+<constructor-arg ref='fare'/>
+    </bean>
+
+   
+
+    
+
+</beans>

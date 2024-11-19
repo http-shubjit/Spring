@@ -1,0 +1,38 @@
+// ioc using applicationContext and Di Using xml
+
+
+
+Spring application, you can control the creation of objects (or "beans") using an XML configuration file instead of writing code to manually create instances. This means that you don't need to use new to create objects of Car or Bus. Instead, Spring does it for you based on the configuration in applicationContext.xml.
+
+Example:
+
+To create an object of Bus:
+
+xml
+<bean id="bus" class="com.example.Bus"/>
+
+To create an object of Car:
+
+xml
+<bean id="car" class="com.example.Car"/>
+
+Key Benefit:
+If you need to change the type of object being created (e.g., switch from Bus to Car), you only need to update the XML configuration. There is no need to modify your source code, which makes your application more flexible and easier to maintain.
+
+
+Implementing Dependency Injection Using Constructor Arguments
+In addition to basic bean creation, Spring supports dependency injection (DI) through constructor arguments. This allows you to pass dependencies directly into the constructor of a bean when it is 
+instantiated.
+
+Example with Constructor Arguments
+Assuming that both Bus and Car classes depend on a Fare class, you can configure this in your XML file as follows:
+xml
+<bean id="fare" class="com.example.Fare"/>
+
+<bean id="bus" class="com.example.Bus">
+    <constructor-arg ref="fare"/> <!-- Injecting Fare dependency into Bus -->
+</bean>
+
+<bean id="car" class="com.example.Car">
+    <constructor-arg ref="fare"/> <!-- Injecting Fare dependency into Car -->
+</bean>
