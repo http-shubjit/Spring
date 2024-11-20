@@ -12,10 +12,12 @@ public class MainApp {
         Vehicle car = (Vehicle) context.getBean("car");
         car.getMileage();
         car.getFare();
-
+        car.getCapacity();
         // Retrieve and use the Bus bean
         Vehicle bus = (Vehicle) context.getBean("bus");
         bus.getMileage();
         bus.getFare();
+        bus.getCapacity();
+
     }
 }
