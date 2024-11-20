@@ -9,12 +9,12 @@
 
     <!-- Bean definition for Car -->
     <bean id="car" class="com.example.Car">
-<property name="fareObject" ref="fare"/>
+<property name="fare" ref="fare"/>
     </bean>
 
     <!-- Bean definition for Bus -->
     <bean id="bus" class="com.example.Bus">
-<property name="fareObject" ref="fare"/>
+<property name="fare" ref="fare"/>
     </bean>
 
    
