@@ -10,8 +10,9 @@ public class App {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
-        Vechile car = context.getBean("car", Vechile.class);
+        Car car = context.getBean("car", Car.class);
         car.getMileage();
+        car.getMrp();
 
         
     }
