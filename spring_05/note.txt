@@ -1,0 +1,13 @@
+# Bean Scope:- 
+
+1. Singleton: The default scope, which creates a single instance of a bean for each Spring IoC container. 
+2. Prototype: Creates a new instance of a bean each time it's requested from the Spring container. 
+3. Request: Creates a new instance of a bean for each HTTP request, and is only valid in a web-aware Spring ApplicationContext. 
+4. Session: Creates a new bean for each HTTP session, and is only valid in a web-aware Spring ApplicationContext. 
+5. Global-session: Creates global session beans for Portlet applications. 
+6. WebSocket: A type of bean scope in Spring. 
+
+# Spring provides several ways to configure your application :-
+
+1. Annotation-based Configuration:
+2. XML Configuration:
