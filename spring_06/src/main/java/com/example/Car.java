@@ -1,12 +1,13 @@
 package com.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("car")
 public class Car implements Vehicle {
     //Using Field Based Injection
-    // @Autowired
+    @Autowired
     private Fare fare;
 
     // using Constructor Bassed Injection
@@ -16,10 +17,10 @@ public class Car implements Vehicle {
     // }
 
     //Using Setter Injection
-    @Autowired
-    public void setFare(Fare fare) {
-        this.fare = fare;
-    }
+    // @Autowired
+    // public void setFare(Fare fare) {
+    //     this.fare = fare;
+    // }
      
     
     // Festival Have 2 implementaion class so if i write only Autowired hen spring
@@ -41,5 +42,11 @@ public class Car implements Vehicle {
 
     public void getFare() {
         System.out.println("Car fare: " + fare.fareforCar());
+    }
+
+    public void getDiscount() {
+        farediscount.getDiscount();
+        fooddiscount.getDiscount();
+        
     }
 }
