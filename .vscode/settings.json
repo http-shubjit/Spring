@@ -1,6 +1,7 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
     "files.autoSave": "onFocusChange",
-    "editor.wordWrap": "bounded"
+    "editor.wordWrap": "bounded",
+    "java.compile.nullAnalysis.mode": "automatic"
 
 }

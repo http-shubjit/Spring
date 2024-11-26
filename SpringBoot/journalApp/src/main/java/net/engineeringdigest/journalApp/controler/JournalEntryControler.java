@@ -35,9 +35,5 @@ private Map<Long, JournalEntry> JournalEntries=new HashMap();
       
     }
    
-    
-    
-
-   
-    
+        
 }
