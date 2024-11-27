@@ -2,24 +2,24 @@ package net.engineeringdigest.journalApp.entity;
 
 public class JournalEntry {
     
-    private long id;
-    private String tittle;
+    private String id;
+    private String title;
     private String content;
 
-    public long getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getTittle() {
-        return this.tittle;
+    public String getTitle() {
+        return this.title;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {

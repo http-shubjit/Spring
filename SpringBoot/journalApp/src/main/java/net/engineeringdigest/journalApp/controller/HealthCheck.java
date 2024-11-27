@@ -1,4 +1,4 @@
-package net.engineeringdigest.journalApp.controler;
+package net.engineeringdigest.journalApp.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
