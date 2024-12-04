@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalApp.service;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import net.engineeringdigest.journalApp.entity.JournalEntry;
@@ -25,12 +26,12 @@ public class JournalEntryService {
     }
 
     // Retrieve a journal entry by ID
-    public Optional<JournalEntry> getJournalEntryById(String id) {
+    public Optional<JournalEntry> getJournalEntryById(ObjectId id) {
         return journalEntityRepo.findById(id);
     }
 
     // Delete a journal entry by ID
-    public void deleteJournalEntry(String id) {
+    public void deleteJournalEntry(ObjectId id) {
         journalEntityRepo.deleteById(id);
     }
 }

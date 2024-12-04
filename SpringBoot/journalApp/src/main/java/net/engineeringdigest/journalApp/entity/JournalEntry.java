@@ -1,27 +1,30 @@
 package net.engineeringdigest.journalApp.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.mongodb.lang.NonNull;
+
+import lombok.Data;
 
 
 
 
-@Document
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
+
+
+@Document(collection = "journalentry")
+@Data
 public class JournalEntry {
     
     @Id
-    private String id;
+    private ObjectId id;
+    @NonNull
     private String title;
     private String content;
+
+
 
   
 

@@ -2,6 +2,7 @@ package net.engineeringdigest.journalApp.controller;
 
 
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,7 @@ public class JournalEntryController {
 
     // Update an existing journal entry by ID
     @PutMapping("/{id}")
-    public ResponseEntity<JournalEntry> updateEntry(@PathVariable String id, @RequestBody JournalEntry updatedEntry) {
+    public ResponseEntity<JournalEntry> updateEntry(@PathVariable ObjectId id, @RequestBody JournalEntry updatedEntry) {
         Optional<JournalEntry> existingEntry = journalEntryService.getJournalEntryById(id);
 
         if (existingEntry.isPresent()) {
@@ -48,7 +49,7 @@ public class JournalEntryController {
 
     // Delete a journal entry by ID
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEntry(@PathVariable String id) {
+    public ResponseEntity<Void> deleteEntry(@PathVariable ObjectId id) {
         Optional<JournalEntry> existingEntry = journalEntryService.getJournalEntryById(id);
 
         if (existingEntry.isPresent()) {
