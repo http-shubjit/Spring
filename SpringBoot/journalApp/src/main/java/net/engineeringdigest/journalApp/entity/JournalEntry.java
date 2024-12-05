@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.mongodb.lang.NonNull;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 
@@ -16,6 +17,7 @@ import lombok.Data;
 
 @Document(collection = "journalentry")
 @Data
+@NoArgsConstructor
 public class JournalEntry {
     
     @Id
