@@ -14,7 +14,6 @@ import net.engineeringdigest.journalApp.service.JournalEntryService;
 import net.engineeringdigest.journalApp.service.UserService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/journal")
@@ -26,11 +25,15 @@ public class JournalEntryController {
     @Autowired
     private UserService userService;
 
-    // Retrieve all journal entries
+    @GetMapping
+    public List<JournalEntry> getAll() {
+        return journalEntryService.getAllJournalEntries();
+
+    }
     @GetMapping("{username}")
     public List<JournalEntry> getAllJournalEntriesOfUser(@PathVariable String username) {
         User user = userService.getUser(username);
-       return user.getJournalEntries();
+        return user.getJournalEntries();
 
     }
 

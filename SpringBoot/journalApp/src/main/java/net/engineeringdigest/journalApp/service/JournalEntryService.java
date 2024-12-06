@@ -24,9 +24,7 @@ public class JournalEntryService {
         User user = userService.getUser(username);
         JournalEntry savEntry = journalEntityRepo.save(entry);
         user.getJournalEntries().add(savEntry);
-        userService.createUser(user);
-
-       
+        userService.save(user);  
     }
 
     // Retrieve all journal entries
@@ -34,13 +32,5 @@ public class JournalEntryService {
         return journalEntityRepo.findAll();
     }
 
-    // Retrieve a journal entry by ID
-    public Optional<JournalEntry> getJournalEntryById(ObjectId id) {
-        return journalEntityRepo.findById(id);
-    }
-
-    // Delete a journal entry by ID
-    public void deleteJournalEntry(ObjectId id) {
-        journalEntityRepo.deleteById(id);
-    }
+  
 }
