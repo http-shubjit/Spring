@@ -3,6 +3,8 @@ package net.engineeringdigest.journalApp.service;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import net.engineeringdigest.journalApp.entity.JournalEntry;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.repository.JournalEntityRepo;
@@ -20,6 +22,7 @@ public class JournalEntryService {
     private UserService userService;
 
     // Create or update a journal entry
+    @Transactional
     public void saveJournalEntry(JournalEntry entry, String username) {
         User user = userService.getUser(username);
         JournalEntry savEntry = journalEntityRepo.save(entry);
