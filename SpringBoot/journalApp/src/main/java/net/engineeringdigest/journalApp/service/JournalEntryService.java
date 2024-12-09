@@ -1,6 +1,5 @@
 package net.engineeringdigest.journalApp.service;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +9,6 @@ import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.repository.JournalEntityRepo;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service // Indicates that this class is a service component
 public class JournalEntryService {
