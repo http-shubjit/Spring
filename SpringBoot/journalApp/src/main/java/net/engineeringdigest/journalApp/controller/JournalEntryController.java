@@ -49,30 +49,5 @@ public class JournalEntryController {
         }
     }
 
-    // // Update an existing journal entry by ID
-    // @PutMapping("/{id}")
-    // public ResponseEntity<JournalEntry> updateEntry(@PathVariable ObjectId id, @RequestBody JournalEntry updatedEntry) {
-    //     Optional<JournalEntry> existingEntry = journalEntryService.getJournalEntryById(id);
 
-    //     if (existingEntry.isPresent()) {
-    //         updatedEntry.setId(id); // Ensure the ID is set for the updated entry
-    //         JournalEntry savedEntry = journalEntryService.saveJournalEntry(updatedEntry);
-    //         return ResponseEntity.ok(savedEntry); // Return the updated entry with HTTP 200 OK
-    //     } else {
-    //         return ResponseEntity.notFound().build(); // Return HTTP 404 Not Found if the entry does not exist
-    //     }
-    // }
-
-    // // Delete a journal entry by ID
-    // @DeleteMapping("/{id}")
-    // public ResponseEntity<Void> deleteEntry(@PathVariable ObjectId id) {
-    //     Optional<JournalEntry> existingEntry = journalEntryService.getJournalEntryById(id);
-
-    //     if (existingEntry.isPresent()) {
-    //         journalEntryService.deleteJournalEntry(id);
-    //         return ResponseEntity.noContent().build(); // Return HTTP 204 No Content after deletion
-    //     } else {
-    //         return ResponseEntity.notFound().build(); // Return HTTP 404 Not Found if the entry does not exist
-    //     }
-    // }
 }
