@@ -7,10 +7,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+
+
 import java.util.Arrays;
 import java.util.List;
 
 @Service
+@Slf4j
 public class UserService {
 
     
@@ -24,14 +28,38 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUser(String userName) {
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
+
+    public boolean saveNewUser(User user) {
+        try {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setRoles(Arrays.asList("USER"));
+            userRepository.save(user);
+            return true;
+        } catch (Exception e) {
+            log.error("hahahhahhahahahah");
+            log.warn("hahahhahhahahahah");
+            log.info("hahahhahhahahahah");
+            log.debug("hahahhahhahahahah");
+            log.trace("hahahhahhahahahah");
+            return false;
+        }
+    }
+
+    public void saveAdmin(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(Arrays.asList("USER", "ADMIN"));
+        userRepository.save(user);
+    }
+    public User findByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }
 
-    public User save(User user) {
-         user.setPassword(passwordEncoder.encode(user.getPassword()));
-            return  userRepository.save(user);                   
-        }
+   
+    
+   
 
     
 }

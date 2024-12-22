@@ -6,6 +6,8 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import net.engineeringdigest.journalApp.entity.JournalEntry;
@@ -25,27 +27,36 @@ public class JournalEntryController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
-    public List<JournalEntry> getAll() {
-        return journalEntryService.getAllJournalEntries();
-
+   
+    @GetMapping()
+    public ResponseEntity<?> getAllJournalEntriesOfUser() {
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String userName = authentication.getName();
+            User user = userService.findByUserName(userName);
+            List<JournalEntry> all = user.getJournalEntries();
+            if (all != null && !all.isEmpty()) {
+                return new ResponseEntity<>(all, HttpStatus.OK);
+            }
+           
+        } 
+    catch (Exception e) {
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    @GetMapping("{username}")
-    public List<JournalEntry> getAllJournalEntriesOfUser(@PathVariable String username) {
-        User user = userService.getUser(username);
-        return user.getJournalEntries();
-
+    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
    
-    @PostMapping("{username}")
-    public ResponseEntity<JournalEntry> createEntry(@RequestBody JournalEntry myEntry, @PathVariable String username) {
+    @PostMapping()
+    public ResponseEntity<JournalEntry> createEntry(@RequestBody JournalEntry myEntry) {
         try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String username = authentication.getName();
             journalEntryService.saveJournalEntry(myEntry, username);
-            return new ResponseEntity<>(HttpStatus.CREATED); // 201 Created
-        }  catch (Exception e) {
-            // Handle any other exceptions
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); // 500 Internal Server Error
+            return new ResponseEntity<>(myEntry, HttpStatus.CREATED);
+        } 
+             catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 

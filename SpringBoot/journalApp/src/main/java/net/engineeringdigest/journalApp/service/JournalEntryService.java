@@ -22,10 +22,10 @@ public class JournalEntryService {
     // Create or update a journal entry
     @Transactional
     public void saveJournalEntry(JournalEntry entry, String username) {
-        User user = userService.getUser(username);
+        User user = userService.findByUserName(username);
         JournalEntry savEntry = journalEntityRepo.save(entry);
         user.getJournalEntries().add(savEntry);
-        userService.save(user);  
+        userService.saveUser(user);  
     }
 
     // Retrieve all journal entries
