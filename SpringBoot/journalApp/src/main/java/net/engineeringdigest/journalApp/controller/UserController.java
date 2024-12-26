@@ -33,10 +33,16 @@ public class UserController {
 
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
-        return new ResponseEntity<>(users, HttpStatus.OK);
+    
+ @GetMapping
+    public ResponseEntity<?> greeting() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        WeatherResponse weatherResponse = weatherService.getWeather("Bhubaneswar");
+        String greeting = "";
+        if (weatherResponse != null) {
+            greeting = ", Weather feels like " + weatherResponse.getDescription();
+        }
+        return new ResponseEntity<>("Hi " + authentication.getName() + greeting, HttpStatus.OK);
     }
 
     @GetMapping("/{userName}")
@@ -56,16 +62,6 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/greet")
-    public ResponseEntity<?> greeting() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        WeatherResponse weatherResponse = weatherService.getWeather("Bhubaneswar");
-        String greeting = "";
-        if (weatherResponse != null) {
-            greeting = ", Weather feels like " + weatherResponse.getDescription();
-        }
-        return new ResponseEntity<>("Hi " + authentication.getName() + greeting, HttpStatus.OK);
-    }
-
+   
    
 }

@@ -49,7 +49,7 @@ logging:
         </encoder>
     </appender>
 
-    <root level="ERROR">
+    <root level="WARN">
         <appender-ref ref="myConsoleAppender" />
         <appender-ref ref="myFileAppender" />
     </root>
