@@ -6,6 +6,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+import net.engineeringdigest.journalApp.enums.Sentiment;
 
 @Service
 @Slf4j
@@ -21,6 +22,7 @@ public class EmailService {
           message.setTo(to);
           message.setSubject(subject);
           message.setText(text);
+          System.out.println(text);
         //   javaMailSender.send(message);
       } catch (Exception e) {
           log.error("Exception while sendEmail ", e);      }

@@ -19,9 +19,7 @@ private MongoTemplate mongoTemplate;
 public List<User> getUserForSA() {
     Query query = new Query();
     query.addCriteria(Criteria.where("email").regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$", "i"));
-
     query.addCriteria(Criteria.where("sentimentalAnalysis").is(true));
-    System.out.println(query);
     List<User> user = mongoTemplate.find(query, User.class);
     return user;
 }

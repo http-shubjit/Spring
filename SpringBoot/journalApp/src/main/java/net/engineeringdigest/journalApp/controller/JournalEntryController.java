@@ -14,6 +14,7 @@ import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.service.JournalEntryService;
 import net.engineeringdigest.journalApp.service.UserService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -51,6 +52,7 @@ public class JournalEntryController {
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String username = authentication.getName();
+            myEntry.setDate(LocalDateTime.now());
             journalEntryService.saveJournalEntry(myEntry, username);
             return new ResponseEntity<>(myEntry, HttpStatus.CREATED);
         } 
