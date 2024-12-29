@@ -1,4 +1,8 @@
+
+
 package net.engineeringdigest.journalApp.api.response;
+
+
 
 import java.util.ArrayList;
 
@@ -8,18 +12,19 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WeatherResponse {
-    public String temperature;
-    public String wind;
+    public int id;
+    public String main;
     public String description;
-    public ArrayList<Forecast> forecast;
+    public String icon;
+    public ArrayList<WeatherResponse> weather;
+
 }
 
-@Getter
-@Setter
- class Forecast {
-    public String day;
-    public String temperature;
-    public String wind;
-}
+
+
+
+
+
+
 
 
