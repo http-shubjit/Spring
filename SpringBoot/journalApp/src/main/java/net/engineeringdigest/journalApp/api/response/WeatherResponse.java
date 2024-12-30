@@ -12,13 +12,20 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WeatherResponse {
-    public int id;
-    public String main;
-    public String description;
-    public String icon;
-    public ArrayList<WeatherResponse> weather;
+
+    public ArrayList<Weather> weather;
+    
+    @Getter
+    @Setter
+    public static class Weather {
+        public int id;
+        public String main;
+        public String description;
+        public String icon;
+    }
 
 }
+
 
 
 

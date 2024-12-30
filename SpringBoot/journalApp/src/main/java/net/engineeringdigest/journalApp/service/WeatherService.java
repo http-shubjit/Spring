@@ -30,8 +30,8 @@ public class WeatherService {
             String finalAPI = appCache.API_CACHE.get("weather_api").replace("CITY", city);
             ResponseEntity<WeatherResponse> response = restTemplate.exchange(finalAPI, HttpMethod.GET, null,
                     WeatherResponse.class);
-            WeatherResponse body = response.getBody().weather.get(0);
-            System.out.println(body);
+            WeatherResponse body = response.getBody();
+            
             if (body != null) {
         redisService.set(city, body, 300l);
        }
