@@ -33,7 +33,7 @@ public class WeatherService {
             WeatherResponse body = response.getBody();
             
             if (body != null) {
-        redisService.set(city, body, 300l);
+        redisService.set(city, body, 3000l);
        }
 
             return body;  
