@@ -36,6 +36,8 @@ public class JwtUtil {
     }
 
     private Boolean isTokenExpired(String token) {
+//         true if the expiration date is before the current time (meaning the token has expired).
+// false if the expiration date is after or equal to the current time (meaning the token is still valid).
         return extractExpiration(token).before(new Date());
     }
 
