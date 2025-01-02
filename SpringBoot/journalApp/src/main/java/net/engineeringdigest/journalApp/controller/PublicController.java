@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
+import net.engineeringdigest.journalApp.dto.UserDTO;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.service.UserDetailsServiceImpl;
 import net.engineeringdigest.journalApp.service.UserService;
@@ -21,6 +23,7 @@ import net.engineeringdigest.journalApp.utilis.JwtUtil;
 @RestController
 @RequestMapping("/public")
 @Slf4j
+@Tag(name = "Public Api")
 public class PublicController {
     
 
@@ -40,8 +43,12 @@ public class PublicController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<Boolean> signUp(@RequestBody User user) {
-        boolean createdUser = userService.saveNewUser(user);
+    public ResponseEntity<Boolean> signUp(@RequestBody UserDTO user) {
+        User newUser = new User();
+        newUser.setEmail(user.getEmail());
+        newUser.setUserName(user.getUserName());
+        newUser.setPassword(user.getPassword());
+        boolean createdUser = userService.saveNewUser(newUser);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 

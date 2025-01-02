@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import net.engineeringdigest.journalApp.api.response.WeatherResponse;
 import net.engineeringdigest.journalApp.entity.User;
 import net.engineeringdigest.journalApp.service.UserService;
@@ -23,6 +24,8 @@ import net.engineeringdigest.journalApp.service.WeatherService;
 
 @RestController
 @RequestMapping("/user")
+@Tag(name = "User Api" ,description="Get & Put")
+
 public class UserController {
 
     @Autowired
